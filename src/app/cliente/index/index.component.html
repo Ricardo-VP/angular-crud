@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Angular 13 CRUD - Clientes</h1>
+  <br />
+
+  <a href="#" routerLink="/cliente/create/" class="btn btn-success"
+    >Crear nuevo cliente</a
+  >
+
+  <br />
+  <br />
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>CUIT</th>
+        <th>Tipo pago</th>
+        <th width="220px">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente._id }}</td>
+        <td>{{ cliente.cliente.tipo }}</td>
+        <td>{{ cliente.cliente.apellido }}</td>
+        <td>{{ cliente.cliente.nombre }}</td>
+        <td>{{ cliente.cliente.ciudad }}</td>
+        <td>{{ cliente.cliente.cuit }}</td>
+        <td>{{ cliente.tipoPago }}</td>
+        <td>
+          <a
+            href="#"
+            [routerLink]="['/cliente/', cliente._id, 'view']"
+            class="btn btn-info"
+            >Ver</a
+          >
+          <a
+            href="#"
+            [routerLink]="['/cliente/', cliente._id, 'edit']"
+            class="btn btn-primary"
+            >Editar</a
+          >
+          <button
+            type="button"
+            (click)="deleteCliente(cliente._id)"
+            class="btn btn-danger"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,113 @@
+<div class="container">
+  <h1>Crear nuevo cliente</h1>
+
+  <a href="#" routerLink="/cliente/index" class="btn btn-primary">Volver</a>
+
+  <br />
+  <br />
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <select formControlName="tipo" class="form-select" aria-label="tipo">
+        <option selected value="regular">Regular</option>
+        <option value="irregular">Irregular</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        formControlName="nombre"
+        id="nombre"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombre'].touched && f['nombre'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">
+          El Nombre es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        formControlName="apellido"
+        id="apellido"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['apellido'].touched && f['apellido'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['apellido'].errors && f['apellido'].errors['required']">
+          El apellido es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ciudad">Ciudad</label>
+      <input
+        formControlName="ciudad"
+        id="ciudad"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['ciudad'].touched && f['ciudad'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['ciudad'].errors && f['ciudad'].errors['required']">
+          La ciudad es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cuit">CUIT</label>
+      <input
+        formControlName="cuit"
+        id="cuit"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['cuit'].touched && f['cuit'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['cuit'].errors && f['cuit'].errors['required']">
+          El CUIT es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tipoPago">Tipo pago</label>
+      <input
+        formControlName="tipoPago"
+        id="tipoPago"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['tipoPago'].touched && f['tipoPago'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['tipoPago'].errors && f['tipoPago'].errors['required']">
+          El tipo de pago es requerido.
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Enviar
+    </button>
+  </form>
+</div>

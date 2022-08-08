@@ -1,0 +1,122 @@
+<div class="container">
+  <h1>Actualizar Cliente</h1>
+
+  <a href="#" routerLink="/cliente/index" class="btn btn-primary">Volver</a>
+
+  <br /><br />
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <select
+        [(ngModel)]="cliente.cliente.tipo"
+        formControlName="tipo"
+        class="form-select"
+        aria-label="tipo"
+      >
+        <option value="regular">Regular</option>
+        <option value="irregular">Irregular</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        formControlName="nombre"
+        id="nombre"
+        type="text"
+        [(ngModel)]="cliente.cliente.nombre"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombre'].touched && f['nombre'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">
+          El nombre es requerido
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        formControlName="apellido"
+        id="apellido"
+        type="text"
+        [(ngModel)]="cliente.cliente.apellido"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['apellido'].touched && f['apellido'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['apellido'].errors && f['apellido'].errors['required']">
+          El apellido es requerido
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ciudad">Ciudad</label>
+      <input
+        formControlName="ciudad"
+        id="ciudad"
+        type="text"
+        [(ngModel)]="cliente.cliente.ciudad"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['ciudad'].touched && f['ciudad'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['ciudad'].errors && f['ciudad'].errors['required']">
+          La ciudad es requerida
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cuit">CUIT</label>
+      <input
+        formControlName="cuit"
+        id="cuit"
+        type="text"
+        [(ngModel)]="cliente.cliente.cuit"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['cuit'].touched && f['cuit'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['cuit'].errors && f['cuit'].errors['required']">
+          El CUIT es requerida
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tipoPago">Tipo de pago</label>
+      <input
+        formControlName="tipoPago"
+        id="tipoPago"
+        type="text"
+        [(ngModel)]="cliente.tipoPago"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['tipoPago'].touched && f['tipoPago'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['tipoPago'].errors && f['tipoPago'].errors['required']">
+          El CUIT es requerida
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Actualizar
+    </button>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Ver Cliente</h1>
+
+  <a href="#" routerLink="/cliente/index" class="btn btn-primary">Volver</a>
+
+  <br /><br />
+
+  <div>
+    <strong>ID:</strong>
+    <p>{{ cliente._id }}</p>
+  </div>
+
+  <div>
+    <strong>Tipo:</strong>
+    <p>{{ cliente.cliente.tipo }}</p>
+  </div>
+
+  <div>
+    <strong>Nombre:</strong>
+    <p>{{ cliente.cliente.nombre }}</p>
+  </div>
+
+  <div>
+    <strong>Apellido:</strong>
+    <p>{{ cliente.cliente.apellido }}</p>
+  </div>
+
+  <div>
+    <strong>Ciudad:</strong>
+    <p>{{ cliente.cliente.ciudad }}</p>
+  </div>
+
+  <div>
+    <strong>CUIT:</strong>
+    <p>{{ cliente.cliente.cuit }}</p>
+  </div>
+</div>
